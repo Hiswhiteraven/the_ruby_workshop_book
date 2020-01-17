@@ -14,7 +14,7 @@ EOC
 def roll_die(how_many_dice)
   # Rolling just one die
   random_sided_die = rand(5..6)
-  puts "Rolling a #{random_sided_die} sided die!"
+  puts "Rolling a {random_sided_die} sided die!"
   rolling_die = rand(random_sided_die) + 1
   puts rolling_die
 
@@ -24,7 +24,7 @@ def roll_die(how_many_dice)
   number_of_dies = { "1" => "one", "2" => "two", "3" => "three", "4" => "four", "5" => "five", "6" => "six" }
   random_sided_die_second_roll = rand(5..6)
   dice_selection_word = number_of_dies[how_many_dice.to_s]
-  puts "Rolling #{dice_selection_word} #{random_sided_die_second_roll} sided dice!"
+  puts "Rolling {dice_selection_word} {random_sided_die_second_roll} sided dice!"
   dice_roll_possibility = how_many_dice * random_sided_die_second_roll
   dice_roll_random_possibility = rand(dice_roll_possibility)
   puts dice_roll_random_possibility
@@ -32,8 +32,28 @@ def roll_die(how_many_dice)
 end
 EOC
 
-def roll(sides)
-  rand(sides) + 1
+def roll(die_sides, number_of_rolls = 1)
+
+  roll_array = Array.new
+
+  number_of_rolls.times do
+    roll_value = rand(die_sides) + 1
+    roll_array.append(roll_value)
+  end
+
+  total = 0
+
+  roll_array.each do |roll|
+    new_total = total + roll
+    total = new_total
+  end
+
+  total
+
 end
 
-puts roll(6)
+puts "Rolling a 5 sided die!"
+puts roll(5)
+puts "******"
+puts "Rolling two 6 sided die!"
+puts roll(6, 2)
