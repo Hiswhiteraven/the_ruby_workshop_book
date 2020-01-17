@@ -10,7 +10,7 @@ puts six_sided_die
 EOC
 
 # Create method that simulates rolling of a die
-
+<<EOC
 def roll_die(how_many_dice)
   # Rolling just one die
   random_sided_die = rand(5..6)
@@ -23,15 +23,17 @@ def roll_die(how_many_dice)
   # Rolling numerous dice
   number_of_dies = { "1" => "one", "2" => "two", "3" => "three", "4" => "four", "5" => "five", "6" => "six" }
   random_sided_die_second_roll = rand(5..6)
-  dice_selection = number_of_dies[how_many_dice]
-  puts "Rolling #{dice_selection} #{random_sided_die_second_roll} sided dice!"
+  dice_selection_word = number_of_dies[how_many_dice.to_s]
+  puts "Rolling #{dice_selection_word} #{random_sided_die_second_roll} sided dice!"
   dice_roll_possibility = how_many_dice * random_sided_die_second_roll
-  puts dice_roll_possibility
+  dice_roll_random_possibility = rand(dice_roll_possibility)
+  puts dice_roll_random_possibility
+  puts "*****"
+end
+EOC
 
+def roll(sides)
+  rand(sides) + 1
 end
 
-roll_die(5)
-roll_die(4)
-roll_die(3)
-roll_die(2)
-roll_die(1)
+puts roll(6)
