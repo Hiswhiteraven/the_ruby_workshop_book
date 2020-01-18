@@ -26,6 +26,15 @@ def drive_decision(traffic_signal, weather, distance_to_signal, speed_limit)
 
   else traffic_signal == :red
 
+  if weather == :sunny && distance_to_signal >= 50
+    return speed_limit * 0.50
+  elsif weather == :rainy && distance_to_signal >= 50
+    return speed_limit * 0.25
+  else
+    0
+  end
+
   end
 
 end
+
