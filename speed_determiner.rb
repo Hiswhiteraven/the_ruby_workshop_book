@@ -38,3 +38,5 @@ def drive_decision(traffic_signal, weather, distance_to_signal, speed_limit)
 
 end
 
+p drive_decision(:green, :sunny, 100, 50)
+p drive_decision(:yellow, :rainy, 50, 25)
